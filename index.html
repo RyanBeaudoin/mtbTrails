@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MtbTrails</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main role="main" class="container">
+    <form id="search-form">
+        <h1>MtbTrails</h1>
+        <h3>Find Trails Near you!</h3>
+        <label for="breed">Enter location: </label>
+        <input type="text" id="user-input" name="user-input"  class="input" required>
+        <input type="submit" value="Submit" id="submit" class="btn submitBtn">
+    </form>
+    <section class="results hidden">
+      <h2>Search results</h2>
+      <ul id="results-list">
+      </ul>
+    </section>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
