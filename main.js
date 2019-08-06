@@ -1,8 +1,8 @@
 'use strict';
 
 const API_KEY = {
-  MTB_PROJECT: '200545097-098accbb03aa805fddcb8415d5803d14',
-  GOOGLE_GEOCODE: 'AIzaSyB4j12Gul8sh8ItARkjtNbbwgFV2pARjv8'
+  MTB_PROJECT: '/*add api key*/',
+  GOOGLE_GEOCODE: '/*add api key*/'
 }
 
 /*function checkResponse(res) {
