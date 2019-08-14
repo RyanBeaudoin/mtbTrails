@@ -1,10 +1,10 @@
 'use strict';
 
 const API_KEY = {
-  MTB_PROJECT: 'APIKEY',
-  GOOGLE_GEOCODE: 'APIKEY',
+  MTB_PROJECT: '200545097-098accbb03aa805fddcb8415d5803d14',
+  GOOGLE_GEOCODE: 'AIzaSyB4j12Gul8sh8ItARkjtNbbwgFV2pARjv8',
   YOUTUBE:
-  'APIKEY'
+  'AIzaSyDjWNOQEuzjtZAxzO_1e_PQjsGH8kThPOk'
 }
 
 function getTrails(res) {
@@ -40,13 +40,14 @@ function getTrailName(res) {
   for (let i=0; i<nameArray; i++) {
     videoURL+=`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${nameArray[i]}&key=${API_KEY.YOUTUBE}`;
   }*/
-  const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name}&key=${API_KEY.YOUTUBE}`;
+  for (let j=0; j<name.length; j++) {
+  const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name[j]}&key=${API_KEY.YOUTUBE}`;
   console.log(videoURL);
   fetch(videoURL)
     .then(response => response.json())
-    .then(resj => displayVideo(resj))
+    .then(resj => displayVideo(resj, j))
     .catch(error => alert(`Something went wrong. ${error.message}`)
-    );
+    )};
 }
 
 //Render Repos to the DOM
@@ -57,7 +58,7 @@ function displayResults(res) {
   $('#results-list').empty();
   let results = '';
   for (let i=0; i<trails.length; i++) {
-    results += `<li>
+    results += `<li id=id${i}>
     <h3 class="trailName">${trails[i].name}</h3>
     <img src="${trails[i].imgSqSmall}">
     <h5>Location:</h5>
@@ -77,7 +78,7 @@ function displayResults(res) {
     <span class="youtube-video-span"></span>
     </section>`;
   }
-  $(".results").replaceWith(`<section class='results'><ul class='results-list'>${results}</ul></results>`);
+  $(".results").append(`<section class='list'><ul class='results-list'>${results}</ul></section>`);
   $('.results').removeClass('hidden');
   return res;
 }
@@ -87,7 +88,7 @@ function displayResults(res) {
     formatName += 
   }*/
 
-function displayVideo(res) {
+function displayVideo(res, j) {
   let trailName = res.items;
   console.log(res);
   let video = '';
@@ -95,8 +96,8 @@ function displayVideo(res) {
     video += `<iframe src="https://www.youtube.com/embed/${res.items[i].id.videoId}"></iframe>`;
   }
   console.log(video);
-    $('.youtube-video').replaceWith(`<section class='youtube-video'>${video}</section>`);
-    return res;
+  $(`#${j}`).append(`<section class='youtube-video'><span class="youtube-video-span">${video}</span></section>`);
+  return res;
 }
 
 function getLat(inputSearch) {
