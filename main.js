@@ -75,10 +75,9 @@ function displayResults(res) {
     <p>${trails[i].longitude}, ${trails[i].latitude}</p>
     </li>
     <section class="youtube-video">
-    <span class="youtube-video-span"></span>
     </section>`;
   }
-  $(".results").append(`<section class='list'><ul class='results-list'>${results}</ul></section>`);
+  $(".results").replaceWith(`<section class='results'><ul class='results-list'>${results}</ul></results>`);
   $('.results').removeClass('hidden');
   return res;
 }
@@ -96,8 +95,8 @@ function displayVideo(res, j) {
     video += `<iframe src="https://www.youtube.com/embed/${res.items[i].id.videoId}"></iframe>`;
   }
   console.log(video);
-  $(`#${j}`).append(`<section class='youtube-video'><span class="youtube-video-span">${video}</span></section>`);
-  return res;
+  $(`#id${j}`).append(`<section class='youtube-video'>${video}</section>`);
+    return res;
 }
 
 function getLat(inputSearch) {
