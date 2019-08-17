@@ -24,31 +24,25 @@ function getTrails(res) {
     );
 }
 
-function getTrailName(res) {
-  console.log(res);
+// function getTrailName(res) {
+//   console.log(res);
 
-  const name = [];
-  for (let i = 0; i < res.trails.length; i++){
-    name[i] = res.trails[i]['name'].replace(/\s/g, "-").toLowerCase();
-  }
-  const nameArray = Object.values(name);
-  console.log(nameArray);
+//   const name = [];
+//   for (let i = 0; i < res.trails.length; i++){
+//     name[i] = res.trails[i]['name'].replace(/\s/g, "-").toLowerCase();
+//   }
+//   const nameArray = Object.values(name);
+//   console.log(nameArray);
 
-  /*let nameArrayLength = nameArray.length;
-  console.log(nameArrayLength);
-  let videoURL='';
-  for (let i=0; i<nameArray; i++) {
-    videoURL+=`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${nameArray[i]}&key=${API_KEY.YOUTUBE}`;
-  }*/
-  for (let j=0; j<name.length; j++) {
-  const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name[j]}&key=${API_KEY.YOUTUBE}`;
-  console.log(videoURL);
-  fetch(videoURL)
-    .then(response => response.json())
-    .then(resj => displayVideo(resj, j))
-    .catch(error => alert(`Something went wrong. ${error.message}`)
-    )};
-}
+//   for (let j=0; j<name.length; j++) {
+//   const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name[j]}&key=${API_KEY.YOUTUBE}`;
+//   console.log(videoURL);
+//   fetch(videoURL)
+//     .then(response => response.json())
+//     .then(resj => displayVideo(resj, j))
+//     .catch(error => alert(`Something went wrong. ${error.message}`)
+//     )};
+// }
 
 //Render Repos to the DOM
 function displayResults(res) {
@@ -81,11 +75,6 @@ function displayResults(res) {
   $('.results').removeClass('hidden');
   return res;
 }
-
-/*let formatName='';
-  for (let i=0; i<nameArray.length; i++) {
-    formatName += 
-  }*/
 
 function displayVideo(res, j) {
   let trailName = res.items;
