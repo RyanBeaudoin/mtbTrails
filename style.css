@@ -1,9 +1,19 @@
 * {
   box-sizing: border-box;
+  padding: 0;
 }
 
-body {
+html {
   font-family: 'Roboto', sans-serif;
+  background-image: url('imgs/background.png');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html.hide-bg {
+  background-image: none;
 }
 
 button, input[type="text"] {
@@ -16,4 +26,299 @@ button, input[type="text"] {
 
 .hidden {
   display: none;
+}
+
+#nav-bar {
+  display: none;
+}
+
+#search-form {
+  text-align: center;
+}
+
+#logo {
+  height: 80px;
+  margin-top: 70px;
+}
+
+#nav-form {
+  width: 305px;
+  margin: 0 auto;
+}
+
+#nav-logo.change-logo {
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#info {
+  margin-bottom: 10px;
+}
+
+#nav-bar{
+  background-color: black;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  float: left;
+  margin: -20px auto;
+  height: 100px;
+}
+
+#nav-title.change-color {
+  color: white;
+  position: relative;
+  left: 150px;
+  bottom: 95px;
+  width: 70px;
+}
+
+#nav-user-input.change-format {
+  position: relative;
+  left: 110px;
+  bottom: 124px;
+}
+
+#nav-arrow-submit.change-format {
+  position: relative;
+  bottom: 113px;
+  left: 110px;
+  height: 30px;
+}
+
+.trailImg {
+  height: 200px;
+}
+
+.results {
+  position: relative;
+  top: 110px;
+  right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  margin-left: 20px;
+}
+
+li:not(:last-child) {
+  border-bottom: 2px dashed black;
+}
+
+.youtube-video {
+  height: 120px;
+  margin-bottom: 35px;
+  position: relative;
+  right: 25px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#play-icon {
+  position: relative;
+  bottom: 75px;
+  left: 88px;
+  z-index: 2;
+  cursor: pointer;
+}
+/*#title {
+  position: relative;
+  top: 340px;
+  left: 325px;
+  font-size: 32px;
+}
+
+#info {
+  font-size: 18px;
+  position: absolute;
+  top: 385px;
+  left: 312px;
+  min-width: 200px;
+} */
+
+#user-input {
+  /* position: relative;
+  top: 370px;
+  left: 250px; */
+  border: solid .1em black;
+  width: 175px;
+  height: 40px;
+}
+
+#submit {
+  background: none;
+  border: none;
+}
+
+#arrow-submit {
+  height: 44px;
+  position: relative;
+  top: 17px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width : 680px) {
+  .results {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #nav-logo.change-logo {
+    position: relative;
+    right: 150px;
+  }
+
+  #nav-title.change-color {
+    font-size: 38px;
+    position: relative;
+    left: -40px;
+    bottom: 95px;
+    width: 70px;
+  }
+  
+  #nav-user-input.change-format {
+    height: 40px;
+    width: 240px;
+    position: relative;
+    left: 160px;
+    bottom: 198px;
+  }
+  
+  #nav-arrow-submit.change-format {
+    position: relative;
+    bottom: 180px;
+    left: 165px;
+    height: 45px;
+  }
+
+  ul {
+    text-align: left;
+    margin-left: 60px;
+  }
+
+  ul:first-child {
+    font-size: 22px;
+  }
+
+  /* .rat-container {
+    position: relative;
+    left: 380px;
+    bottom: 420px;
+  } */
+
+  /* .rating-label {
+    position: relative;
+    bottom: 310px;
+    left: 450px;
+    font-weight: 100;
+    font-size: 22px;
+  } */
+
+  /* .rating-num {
+    position: relative;
+    border: solid 1px blue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  } */
+
+  .rating-num p {
+    width: 90px;
+    position: relative;
+    left: 370px;
+    bottom: 470px;
+    font-size: 70px;
+  }
+
+  .rating-label {
+    width: 90px;
+    position: relative;
+    left: 390px;
+    bottom: 510px;
+  }
+
+  .rem-res-cont {
+    position: relative;
+    bottom: 245px;
+  }
+
+  .youtube-video {
+    height: 220px;
+    position: relative;
+    left: 215px;
+    bottom: 520px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  #play-icon {
+    height: 50px;
+    position: relative;
+    bottom: 640px;
+    left: 390px;
+    z-index: 2;
+    cursor: pointer;
+    border: none;
+  }
+
+  li {
+    height: 850px;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  .trailName {
+    font-size: 30px;
+  }
+
+  .trailImg {
+    height: 300px;
+  }
+
+  .rating-num p {
+    position: relative;
+    left: 480px;
+    bottom: 570px;
+    font-size: 110px;
+  }
+
+  .rating-label {
+    font-size: 28px;
+    width: 90px;
+    position: relative;
+    left: 510px;
+    bottom: 650px;
+  }
+
+  .rem-res-cont {
+    position: relative;
+    bottom: 395px;
+  }
+
+  .youtube-video {
+    height: 280px;
+    position: relative;
+    left: 275px;
+    bottom: 700px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  #play-icon {
+    height: 50px;
+    position: relative;
+    bottom: 845px;
+    left: 500px;
+    z-index: 2;
+    cursor: pointer;
+    border: none;
+  }
+
+  li {
+    height: 980px;
+    width: 700px;
+  }
 }

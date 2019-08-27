@@ -24,25 +24,26 @@ function getTrails(res) {
     );
 }
 
-// function getTrailName(res) {
-//   console.log(res);
+function getTrailName(res) {
+  console.log(res);
 
-//   const name = [];
-//   for (let i = 0; i < res.trails.length; i++){
-//     name[i] = res.trails[i]['name'].replace(/\s/g, "-").toLowerCase();
-//   }
-//   const nameArray = Object.values(name);
-//   console.log(nameArray);
+  const name = [];
+  for (let i = 0; i < res.trails.length; i++){
+    name[i] = res.trails[i]['name'].replace(/\s/g, "-").toLowerCase();
+  }
+  const nameArray = Object.values(name);
+  console.log(nameArray);
 
-//   for (let j=0; j<name.length; j++) {
-//   const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name[j]}&key=${API_KEY.YOUTUBE}`;
-//   console.log(videoURL);
-//   fetch(videoURL)
-//     .then(response => response.json())
-//     .then(resj => displayVideo(resj, j))
-//     .catch(error => alert(`Something went wrong. ${error.message}`)
-//     )};
-// }
+  for (let j=0; j<name.length; j++) {
+  const videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name[j]}&key=${API_KEY.YOUTUBE}`;
+  console.log(videoURL);
+  fetch(videoURL)
+    .then(response => response.json())
+    .then(resj => displayVideo(resj, j))
+    .then(resj => watchVidClick(resj, j))
+    .catch(error => alert(`Something went wrong. ${error.message}`)
+    )};
+}
 
 //Render Repos to the DOM
 function displayResults(res) {
@@ -54,22 +55,25 @@ function displayResults(res) {
   for (let i=0; i<trails.length; i++) {
     results += `<li id=id${i}>
     <h3 class="trailName">${trails[i].name}</h3>
-    <img src="${trails[i].imgSqSmall}">
+    <img src="${trails[i].imgSqSmall}" class="trailImg">
     <h5>Location:</h5>
     <p>${trails[i].location}</p>
     <h5>Overview:</h5>
     <p>${trails[i].summary}</p>
-    <h5>Rating:</h5>
-    <p>${trails[i].stars}</p>
-    <h5>Length:</h5>
-    <p>${trails[i].length}</p>
-    <h5>Conditions:</h5>
-    <p>${trails[i].conditionStatus}</p>
-    <h5>Coordinates:</h5>
-    <p>${trails[i].longitude}, ${trails[i].latitude}</p>
-    </li>
-    <section class="youtube-video">
-    </section>`;
+    <div class ="rating-num">
+      <p>${trails[i].stars}</p>
+    </div>
+    <h5 class="rating-label">Rating</h5>
+    <div class="rem-res-cont">
+      <h5>Length:</h5>
+      <p>${trails[i].length} miles</p>
+      <h5>Conditions:</h5>
+      <p>${trails[i].conditionStatus}</p>
+      <h5>Coordinates:</h5>
+      <p>${trails[i].longitude}, ${trails[i].latitude}</p>
+    </div>
+    <img src='imgs/play-icon.jpeg' id='play-icon'>
+    </li>`;
   }
   $(".results").replaceWith(`<section class='results'><ul class='results-list'>${results}</ul></results>`);
   $('.results').removeClass('hidden');
@@ -81,11 +85,22 @@ function displayVideo(res, j) {
   console.log(res);
   let video = '';
   for (let i=0; i<trailName.length; i++) {
-    video += `<iframe src="https://www.youtube.com/embed/${res.items[i].id.videoId}"></iframe>`;
+    video += `<img class='youtube-video' src='${res.items[i].snippet.thumbnails.default.url}'>`;
   }
   console.log(video);
-  $(`#id${j}`).append(`<section class='youtube-video'>${video}</section>`);
+  $(`#id${j}`).append(`${video}</section>`);
     return res;
+}
+
+function watchVidClick (res, j) {
+  let trailName = res.items;
+  let vidUrl = '';
+  for (let i = 0; i < trailName.length; i++) {
+    vidUrl += `https://www.youtube.com/watch?v=${res.items[i].id.videoId}`;
+    $('.youtube-video, #play-icon').click(function(){
+      window.open(vidUrl, '_blank');
+    });
+  };
 }
 
 function getLat(inputSearch) {
@@ -101,6 +116,15 @@ function watchForm() {
   $('form').submit(e => {
     e.preventDefault();
     let inputSearch = $('#user-input').val();
+    $('#search-form').hide();
+    $('html').addClass('hide-bg');
+    $('#nav-info').hide();
+    $('#nav-bar').show();
+    $('#nav-title').addClass('change-color');
+    $('#nav-logo').addClass('change-logo');
+    // $('#nav-form').addClass('change-format');
+    $('#nav-user-input').addClass('change-format');
+    $('#nav-arrow-submit').addClass('change-format');
     $('.results').empty();
     getLat(inputSearch);
     console.log(inputSearch);
