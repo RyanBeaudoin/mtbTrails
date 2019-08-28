@@ -119,7 +119,7 @@ li:not(:last-child) {
 #play-icon {
   position: relative;
   bottom: 75px;
-  left: 88px;
+  left: 79px;
   z-index: 2;
   cursor: pointer;
 }
@@ -143,7 +143,7 @@ li:not(:last-child) {
   top: 370px;
   left: 250px; */
   border: solid .1em black;
-  width: 175px;
+  width: 205px;
   height: 40px;
 }
 
@@ -160,6 +160,11 @@ li:not(:last-child) {
 }
 
 @media only screen and (min-width : 680px) {
+  #search-form {
+    position: relative;
+    top: 230px;
+  }
+
   .results {
     max-width: 700px;
     margin-left: auto;
@@ -229,15 +234,15 @@ li:not(:last-child) {
     width: 90px;
     position: relative;
     left: 370px;
-    bottom: 470px;
+    bottom: 510px;
     font-size: 70px;
   }
 
   .rating-label {
     width: 90px;
     position: relative;
-    left: 390px;
-    bottom: 510px;
+    left: 380px;
+    bottom: 300px;
   }
 
   .rem-res-cont {
@@ -266,6 +271,13 @@ li:not(:last-child) {
 
   li {
     height: 850px;
+  }
+}
+
+@media only screen and (min-width : 950px) {
+  #search-form {
+    position: relative;
+    top: 230px;
   }
 }
 
