@@ -60,10 +60,10 @@ function displayResults(res) {
     <p>${trails[i].location}</p>
     <h5>Overview:</h5>
     <p>${trails[i].summary}</p>
-    <h5 class="rating-label">Rating</h5>
     <div class ="rating-num">
       <p>${trails[i].stars}</p>
     </div>
+    <h5 class="rating-label">Rating</h5>
     <div class="rem-res-cont">
       <h5>Length:</h5>
       <p>${trails[i].length} miles</p>

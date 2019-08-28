@@ -234,20 +234,21 @@ li:not(:last-child) {
     width: 90px;
     position: relative;
     left: 370px;
-    bottom: 510px;
+    bottom: 450px;
     font-size: 70px;
   }
 
   .rating-label {
+    font-size: 28px;
     width: 90px;
     position: relative;
-    left: 380px;
-    bottom: 300px;
+    left: 360px;
+    bottom: 500px;
   }
 
   .rem-res-cont {
     position: relative;
-    bottom: 245px;
+    bottom: 265px;
   }
 
   .youtube-video {
@@ -298,10 +299,10 @@ li:not(:last-child) {
   }
 
   .rating-label {
-    font-size: 28px;
+    font-size: 32px;
     width: 90px;
     position: relative;
-    left: 510px;
+    left: 480px;
     bottom: 650px;
   }
 
